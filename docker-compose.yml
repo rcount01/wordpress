@@ -15,15 +15,15 @@ services:
       - ~/wordpress/html:/var/www/html
 
   phpmyadmin:
-      image: phpmyadmin/phpmyadmin
-      volumes:
-          - ~/sessions
-      ports:
-          - 40000:80
-      environment:
-          PMA_HOST: wordpress1.cflv41fyffpo.ap-northeast-1.rds.amazonaws.com
-          PMA_USER: admin
-          PMA_PASSWORD: wordpress
+    image: phpmyadmin/phpmyadmin
+    volumes:
+      - ~/sessions
+    ports:
+      - 40000:80
+    environment:
+      PMA_HOST: wordpress1.cflv41fyffpo.ap-northeast-1.rds.amazonaws.com
+      PMA_USER: admin
+      PMA_PASSWORD: wordpress
 
 
 volumes:
