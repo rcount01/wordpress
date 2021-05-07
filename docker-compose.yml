@@ -1,0 +1,31 @@
+version: "3.9"
+
+services:
+  wordpress:
+    image: wordpress:latest
+    ports:
+      - "8000:80"
+    restart: always
+    environment:
+      WORDPRESS_DB_HOST: wordpress1.cflv41fyffpo.ap-northeast-1.rds.amazonaws.com
+      WORDPRESS_DB_USER: admin
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_NAME: wordpress1
+    volumes:
+      - ~/wordpress/html:/var/www/html
+
+  phpmyadmin:
+      image: phpmyadmin/phpmyadmin
+      volumes:
+          - ~/sessions
+      ports:
+          - 40000:80
+      environment:
+          PMA_HOST: wordpress1.cflv41fyffpo.ap-northeast-1.rds.amazonaws.com
+          PMA_USER: admin
+          PMA_PASSWORD: wordpress
+
+
+volumes:
+  db_data:
+
